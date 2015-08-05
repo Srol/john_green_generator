@@ -1,5 +1,6 @@
 React = require 'react'
 Data = require './data'
+SocialBar = require './social_bar'
 Isvg = require 'react-inlinesvg'
 _ = require 'underscore'
 
@@ -26,14 +27,24 @@ module.exports = React.createClass
     """
 
   changeStory: ->
-    @setState story: @generateStory()
+    @setState story: @generateStory(), =>
+      @props.resize()
+
+  titleCase: (string) ->
+    string.split(" ").reduce (acc, val) ->
+      acc += "#{val.slice(0, 1).toUpperCase()}#{val.slice(1)} "
+    , ''
+
+  generateTitleText: ->
+    "The CHOICE of LANDFORM"
+      .replace("CHOICE", @props.CHOICE)
+      .replace("LANDFORM", @titleCase(@props.LANDFORM))
 
   generateTitle: ->
-    title = "The CHOICE of LANDFORM"
-      .replace("CHOICE", @props.CHOICE)
-      .replace("LANDFORM", @props.LANDFORM)
+    title = @generateTitleText()
     title = title.split(" of ")
     <h2>{title[0]} <br /><span className="of">of</span> {title[1]}</h2>
+
   generateStory: ->
     Data.push(PERSONAL_HERO: [@props.PERSONAL_HERO])
     Data.push(NEMESIS: [@props.NEMESIS])
@@ -48,17 +59,27 @@ module.exports = React.createClass
   render: ->
     dropcap = @state.story.slice(0,1).toLowerCase()
     story = @state.story.slice(1)
-    console.log dropcap
-    <div className="book" onClick={@changeStory} style={background: _.sample(colors)}>
-      <Isvg src="best_selling_author.svg" className="best" />
-      {@generateTitle()}
-      <div className="bottom">
-        <Isvg src="gold_seal.svg" className="gold" />
-        <Isvg src="major_motion_picture.svg" className="movie" />
-        <Isvg src="price.svg" className="price" />
+    <div>
+      <div className="book" onClick={@changeStory} style={background: _.sample(colors)}>
+        <Isvg src="best_selling_author.svg" className="best" onLoad={@props.resize} />
+        {@generateTitle()}
+        <div className="bottom">
+          <Isvg src="gold_seal.svg" className="gold" />
+          <Isvg src="major_motion_picture.svg" className="movie" />
+          <Isvg src="price.svg" className="price" />
+        </div>
+        <p>
+          <img src="#{dropcap}.svg" className="dropcap" />
+          {story}
+        </p>
       </div>
-      <p>
-        <img src="#{dropcap}.svg" className="dropcap" />
-        {story}
-      </p>
+      <SocialBar
+        startOver={@props.startOver}
+        tw_text={"#{@generateTitleText().trim()}, a new novel by John Green and also me"}
+        text={"<i>#{@generateTitleText().trim()}</i>, a new novel by John Green"}
+        fb_description={"Eat your heart out, #{@props.NEMESIS}."}
+        fb_image="http://gawker-labs.com/goodell_punishment/goodell_facebook-02.png"
+        post_url="http://deadspin.com/roger-goodell-punishment-generator-1720846778"
+        app_id="544490982383870"
+      />
     </div>

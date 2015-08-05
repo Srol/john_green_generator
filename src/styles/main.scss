@@ -95,6 +95,8 @@ input[type=text] {
   justify-content: flex-end;
   background: white;
   padding-top: 20px;
+  max-width: 540px;
+  margin: 0 auto;
   a {
     margin-right: 0;
     margin-left: 10px;
@@ -111,9 +113,9 @@ input[type=text] {
   }
   .button svg {
     width: 30px;
-    fill: #2D9D92;
+    fill: $red;
     &:hover {
-      fill: #1E6558;
+      fill: red;
     }
   }
 }
@@ -217,5 +219,15 @@ h4, p {
   }
   .conclusion {
     margin-top: 31px;
+  }
+  input[type=text] {
+    font-size: 20px;
+  }
+  .group {
+    margin-bottom: 39px;
+  }
+  .eg {
+    margin-top: -39px;
+    margin-bottom: 36px;
   }
 }

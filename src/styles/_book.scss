@@ -2,6 +2,7 @@
   max-width: 540px;
   min-height: 750px;
   margin: 0 auto;
+  position: relative;
   .best {
     padding-top: 30px;
     display: block;
@@ -82,11 +83,32 @@
   p {
     position: relative;
     text-align: left;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 30px;
     color: #222;
     padding: 0 30px 75px;
     z-index: 100;
-    margin-top: 0;
+    margin: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .book {
+    h2 {
+      font-size: 30px;
+      line-height: 31px;
+      letter-spacing: 2px;
+    }
+    .bottom {
+      .movie svg {
+        width: 180px;
+        margin: 0;
+        margin-left: 50%;
+      }
+      .price svg {
+        width: 60px;
+      }
+    }
   }
 }

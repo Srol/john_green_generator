@@ -2,15 +2,16 @@ React = require 'react'
 Choices = require './choices'
 Form = require './form'
 MoneyShot = require './money_shot'
+Resizer = require './kinja_resizer'
 
 module.exports = React.createClass
+  mixins: [Resizer]
   getInitialState: ->
     step: 0
 
   nextStep: (obj={}) ->
     obj.step = @state.step + 1
-    @setState obj, =>
-      console.log @state
+    @setState obj
 
   render: ->
     step = switch @state.step
@@ -20,7 +21,9 @@ module.exports = React.createClass
           <Choices nextStep={@nextStep} />
         </div>
       when 1
-        <Form nextStep={@nextStep} />
+        <Form nextStep={@nextStep}
+          resize={@resize}
+        />
       when 2
         <MoneyShot
           PERSONAL_HERO={@state.hero}
@@ -28,6 +31,9 @@ module.exports = React.createClass
           NEMESIS={@state.nemesis}
           LANDFORM={@state.landform}
           CHOICE={@state.choice}
+          resize={@resize}
+          startOver={=> @setState step: 0}
+          }
         />
     <div>
       <h3 className="interactive">The John Green Plot Generator</h3>

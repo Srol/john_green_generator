@@ -4,7 +4,7 @@ Tappable = require 'react-tappable'
 
 module.exports = React.createClass
   tweet: (e) ->
-    link = "https://twitter.com/home?status=#{encodeURIComponent @props.text} #{encodeURIComponent @props.post_url}"
+    link = "https://twitter.com/home?status=#{encodeURIComponent @props.tw_text} #{encodeURIComponent @props.post_url}"
     window.open link
     e.preventDefault()
 
@@ -17,10 +17,14 @@ module.exports = React.createClass
     window.open url
     e.preventDefault()
 
+  startOver: (e) ->
+    e.preventDefault()
+    @props.startOver()
+
   render: ->
     <div className="social">
       <div className="start-over">
-        <a href="#" onClick={@props.startOver}>Start over</a>
+        <a href="#" onClick={@startOver}>Again!</a>
       </div>
       <Tappable onClick={@tweet}><a href="#"><Isvg src="tw.svg" className="button" /></a></Tappable>
       <Tappable onClick={@fb}><a href="#"><Isvg src="fb.svg" className="button" /></a></Tappable>

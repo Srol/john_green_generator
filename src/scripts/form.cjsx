@@ -14,10 +14,14 @@ module.exports = React.createClass
     nemesis: null
     filled: false
 
+  componentDidMount: ->
+    @props.resize()
+
   handleChange: (inputObj) ->
     @setState inputObj, ->
       if @allFilled()
-        @setState filled: true
+        @setState filled: true, =>
+          @props.resize()
       else
         @setState(filled: false) if @state.filled
 
@@ -28,15 +32,16 @@ module.exports = React.createClass
   filled: (val) ->
     val? and val != ''
 
-  handleTap: (e) ->
+  handleSubmit: (e) ->
     e.preventDefault()
+    e.stopPropagation()
     setTimeout =>
       @props.nextStep(@state)
     , 500
 
   render: ->
     <div className="form">
-      <form onSubmit={@handleTap}>
+      <form onSubmit={@handleSubmit}>
         <Input
           text="Your personal hero"
           focus={true}
@@ -61,9 +66,7 @@ module.exports = React.createClass
         />
         {
           @state.filled and
-          <Tappable onTap={@handleTap}>
-            <button>Done</button>
-          </Tappable>
+          <button>Done</button>
         }
       </form>
     </div>
