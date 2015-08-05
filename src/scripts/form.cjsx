@@ -4,14 +4,14 @@ Tappable = require 'react-tappable'
 
 module.exports = React.createClass
   getInitialState: ->
-    hero: "John Appel"
-    landform: "Mountains"
-    city: "Des Moines"
-    nemesis: "Chad Plumb"
-    # hero: null
-    # landform: null
-    # city: null
-    # nemesis: null
+    # hero: "John Appel"
+    # landform: "Mountains"
+    # city: "Des Moines"
+    # nemesis: "Chad Plumb"
+    hero: null
+    landform: null
+    city: null
+    nemesis: null
     filled: false
 
   handleChange: (inputObj) ->

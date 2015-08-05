@@ -46,7 +46,7 @@ module.exports = React.createClass
     , @props.storyTemplate
 
   render: ->
-    dropcap = @state.story.slice(0,1)
+    dropcap = @state.story.slice(0,1).toLowerCase()
     story = @state.story.slice(1)
     console.log dropcap
     <div className="book" onClick={@changeStory} style={background: _.sample(colors)}>

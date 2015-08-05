@@ -15,13 +15,19 @@ module.exports = React.createClass
     @props.handleChange(obj)
 
   render: ->
-    <div className="group">
-      <div className="input-container">
-        <input type="text" ref="input"
-          placeholder={@props.text}
-          name={@props.name}
-          onChange={@handleChange}
-        />
-        <div>></div>
+    <div>
+      <div className="group">
+        <div className="input-container">
+          <input type="text" ref="input"
+            placeholder={@props.text}
+            name={@props.name}
+            onChange={@handleChange}
+          />
+          <div>></div>
+        </div>
       </div>
+      {
+        @props.eg? &&
+        <div className="eg">(e.g., {@props.eg})</div>
+      }
     </div>
