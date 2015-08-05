@@ -1,0 +1,216 @@
+// Global imports
+// @import "breakpoint";
+@import "flexbox";
+@import "placeholder";
+@import "base";
+@import "book";
+@import "kinja_fonts";
+@import "font_smoothing";
+
+.outside {
+  display: block;
+}
+
+$light_blue: #D8E5E1;
+$red: #E21638;
+$dark_blue: #1E6558;
+
+// Project imports
+
+body {
+  @include font-smoothing;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+}
+
+h3.header {
+  margin-bottom: 15px;
+  line-height: 42px;
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 30px;
+}
+
+h3.interactive {
+  text-transform: uppercase;
+  padding-top: 8px;
+  font-family: ProximaNovaCond;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  // font-weight: normal;
+  border-top: 1px solid $red;
+  color: $red;
+  text-align: left;
+}
+
+input[type=text] {
+  width: 100%;
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 30px;
+  border: none;
+  padding-bottom: 5px;
+  outline: none;
+  @include placeholder {
+    color: black;
+  }
+}
+
+.input-container {
+  border-bottom: 1px solid black;
+  @include flexbox;
+  @include justify-content(space-between);
+  button {
+    background: white;
+    border: none;
+    outline: none;
+  }
+}
+
+.group {
+  margin-bottom: 70px;
+}
+
+.form {
+  margin-top: 50px;
+}
+
+
+
+
+
+.social {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+  background: white;
+  padding-top: 20px;
+  a {
+    margin-right: 0;
+    margin-left: 10px;
+    font-family: ProximaNovaCond;
+    text-decoration: none;
+    color: #7d7d7d;
+  }
+  .start-over {
+    flex: 1 0 0;
+    align-self: flex-start;
+    a {
+      margin-left: 0;
+    }
+  }
+  .button svg {
+    width: 30px;
+    fill: #2D9D92;
+    &:hover {
+      fill: #1E6558;
+    }
+  }
+}
+
+h4 {
+  margin-top: 7px;
+  margin-bottom: 24px;
+}
+
+h4, p {
+  font-weight: normal;
+  text-align: center;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.question-leave {
+  opacity: 1;
+  transition: all .25s ease-in;
+}
+
+.question-leave.question-leave-active {
+  opacity: 0.01;
+  // margin-top: 800px;
+  // transform: rotate(50deg);
+}
+
+.question-enter {
+  opacity: 0.01;
+  transition: opacity .25s ease-in;
+}
+
+.question-enter.question-enter-active {
+  opacity: 1;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: auto;
+  margin-bottom: 0px;
+}
+.option {
+  font-family: ProximaNovaCond;
+  font-size: 16px;
+  color: #808080;
+  cursor: pointer;
+  // flex: 1 0;
+  // width: 150px;
+  width: 23.5%;
+  margin-right: 2%;
+  margin-bottom: 12px;
+  height: 35px;
+  // margin: 6px;
+  padding: 10px 0;
+  text-align: center;
+  background: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  &:nth-child(4) {
+    margin-right: 0
+  }
+  &:hover {
+    color: #222;
+  }
+}
+
+.selected {
+  // @include font-smoothing(none);
+  // font-weight: bold;
+  color: $red;
+  background: white;
+  border: 1px solid $red;
+  &:hover {
+    color: $red;
+  }
+}
+
+
+@media (max-width: 480px) {
+  h4, p {
+    font-size: 22px;
+    line-height: 32px;
+  }
+  .social {
+    a {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+    .start-over a {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+    .button svg {
+      width: 40px;
+    }
+  }
+  .punishment_header {
+    margin-top: -31px
+  }
+  .conclusion {
+    margin-top: 31px;
+  }
+}

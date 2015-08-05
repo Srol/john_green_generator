@@ -1,0 +1,92 @@
+.book {
+  max-width: 540px;
+  min-height: 750px;
+  margin: 0 auto;
+  .best {
+    padding-top: 30px;
+    display: block;
+    svg {
+      width: 280px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  .dropcap {
+    width: 110px;
+    float: left;
+    margin-bottom: -10px;
+    path {
+      fill: white;
+    }
+  }
+  .bottom {
+    position: absolute;
+    max-width: 540px;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    height: 200px;
+    .gold {
+      position: absolute;
+      right: 40px;
+      svg {
+        width: 130px;
+        height: 130px;
+      }
+    }
+    .price {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      svg {
+        width: 70px;
+        path {
+          fill: white;
+        }
+      }
+    }
+    .movie {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      svg {
+        width: 220px;
+        margin: 0 auto;
+        display: block;
+        path {
+          fill: white;
+        }
+      }
+    }
+  }
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    color: white;
+    font-family: ProximaNovaCond;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 41px;
+    font-size: 40px;
+    text-align: center;
+    .of {
+      font-family: Georgia;
+      font-style: italic;
+      font-size : 30px;
+      line-height : 41px;
+      letter-spacing : 1.5px;
+      text-transform: lowercase;
+      font-weight: normal;
+    }
+  }
+  p {
+    position: relative;
+    text-align: left;
+    font-size: 18px;
+    line-height: 28px;
+    color: #222;
+    padding: 0 30px 75px;
+    z-index: 100;
+    margin-top: 0;
+  }
+}
