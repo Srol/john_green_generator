@@ -54,7 +54,7 @@ module.exports = React.createClass
     dropcap = @state.story.slice(0,1).toLowerCase()
     story = @state.story.slice(1)
     <div>
-      <div className="book" onClick={@changeStory} style={background: _.sample(colors)}>
+      <div className="book" style={background: _.sample(colors)}>
         <Isvg src="best_selling_author.svg" className="best" onLoad={@props.resize} />
         {@generateTitle()}
         <div className="bottom">
