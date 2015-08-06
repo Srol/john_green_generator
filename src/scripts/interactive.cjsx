@@ -14,7 +14,8 @@ module.exports = Interactive = React.createClass
     @setState obj
 
   reset: ->
-    @replaceState(@getInitialState())
+    @replaceState @getInitialState(), ->
+      @resize()
 
   render: ->
     step = switch @state.step

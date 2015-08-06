@@ -24,7 +24,7 @@ module.exports = React.createClass
   render: ->
     <div className="social">
       <div className="start-over">
-        <a href="#" onClick={@startOver}>Again!</a>
+        <a href="#" onClick={@startOver}>Another!</a>
       </div>
       <Tappable onClick={@tweet}><a href="#"><Isvg src="tw.svg" className="button" /></a></Tappable>
       <Tappable onClick={@fb}><a href="#"><Isvg src="fb.svg" className="button" /></a></Tappable>

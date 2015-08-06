@@ -78,7 +78,7 @@ input[type=text] {
     }
     .disabled {
       svg circle {
-        fill: #F29AA9;
+        fill: #FF7177;
       }
     }
   }
@@ -127,7 +127,7 @@ input[type=text] {
     width: 30px;
     fill: $red;
     &:hover {
-      fill: red;
+      fill: #FF7177;
     }
   }
 }

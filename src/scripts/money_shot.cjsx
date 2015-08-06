@@ -5,17 +5,10 @@ Isvg = require 'react-inlinesvg'
 _ = require 'underscore'
 
 colors = [
-  "#00AFDF"
-  "#F77474"
-  "#9AAAC1"
-  "#40BEB4"
-  "#F282A9"
-  "#A092BD"
-  "#AA9F96"
-  "#CA8A73"
-  "#EFAB50"
-  "#C2B969"
-  "#46ACB8"
+  "#D3A475"
+  "#04BC62"
+  "#5EACFC"
+  "#FF7177"
 ]
 
 module.exports = React.createClass
@@ -75,12 +68,12 @@ module.exports = React.createClass
         </p>
       </div>
       <SocialBar
-        startOver={@props.startOver}
+        startOver={@changeStory}
         tw_text={"#{@generateTitleText().trim()}, a new novel by John Green and also me"}
         text={"<i>#{@generateTitleText().trim()}</i>, a new novel by John Green"}
         fb_description={"Eat your heart out, #{@props.NEMESIS}."}
         fb_image="http://gawker-labs.com/goodell_punishment/goodell_facebook-02.png"
-        post_url="http://deadspin.com/roger-goodell-punishment-generator-1720846778"
-        app_id="544490982383870"
+        post_url="http://jezebel.com/create-your-very-own-ya-novel-with-this-john-green-book-1722525727"
+        app_id="281755378661433"
       />
     </div>
