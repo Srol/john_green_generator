@@ -4,7 +4,7 @@ Form = require './form'
 MoneyShot = require './money_shot'
 Resizer = require './kinja_resizer'
 
-module.exports = React.createClass
+module.exports = Interactive = React.createClass
   mixins: [Resizer]
   getInitialState: ->
     step: 0
@@ -12,6 +12,9 @@ module.exports = React.createClass
   nextStep: (obj={}) ->
     obj.step = @state.step + 1
     @setState obj
+
+  reset: ->
+    @replaceState(@getInitialState())
 
   render: ->
     step = switch @state.step
@@ -32,10 +35,12 @@ module.exports = React.createClass
           LANDFORM={@state.landform}
           CHOICE={@state.choice}
           resize={@resize}
-          startOver={=> @setState step: 0}
+          startOver={@reset}
           }
         />
     <div>
+    { @state.step < 2 &&
       <h3 className="interactive">The John Green Plot Generator</h3>
+    }
       {step}
     </div>

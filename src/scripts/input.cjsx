@@ -1,5 +1,6 @@
 React = require 'react'
 Isvg = require 'react-inlinesvg'
+classnames = require 'classnames'
 
 module.exports = React.createClass
   getInitialState: ->
@@ -14,6 +15,8 @@ module.exports = React.createClass
     obj[e.target.name] = e.target.value
     @props.handleChange(obj)
 
+  empty: ->
+    !@props.value or @props.value is ''
   render: ->
     <div>
       <div className="group">
@@ -22,8 +25,13 @@ module.exports = React.createClass
             placeholder={@props.text}
             name={@props.name}
             onChange={@handleChange}
+            value={@props.value}
           />
-          <div>></div>
+          <button disabled={@empty()}>
+            <Isvg src="arrow.svg" width="25" height="24"
+              className={classnames(disabled: @empty())}
+            />
+          </button>
         </div>
       </div>
       {

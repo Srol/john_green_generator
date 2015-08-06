@@ -69,6 +69,18 @@ input[type=text] {
     background: white;
     border: none;
     outline: none;
+    cursor: pointer;
+    svg {
+      width: 25px;
+      circle {
+        fill: #E21638;
+      }
+    }
+    .disabled {
+      svg circle {
+        fill: #F29AA9;
+      }
+    }
   }
 }
 

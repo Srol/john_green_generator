@@ -13,60 +13,60 @@ module.exports = React.createClass
     city: null
     nemesis: null
     filled: false
+    step: 0
 
   componentDidMount: ->
     @props.resize()
 
   handleChange: (inputObj) ->
-    @setState inputObj, ->
-      if @allFilled()
-        @setState filled: true, =>
-          @props.resize()
-      else
-        @setState(filled: false) if @state.filled
+    @setState inputObj
 
-  allFilled: ->
-    @filled(@state.hero) and @filled(@state.landform) and
-      @filled(@state.city) and @filled(@state.nemesis)
-
-  filled: (val) ->
-    val? and val != ''
+  nextStep: ->
+    @setState step: @state.step + 1
 
   handleSubmit: (e) ->
     e.preventDefault()
     e.stopPropagation()
-    setTimeout =>
+    if @state.step is 3
       @props.nextStep(@state)
-    , 500
+    else
+      @nextStep()
 
   render: ->
     <div className="form">
       <form onSubmit={@handleSubmit}>
-        <Input
-          text="Your personal hero"
-          focus={true}
-          handleChange={@handleChange}
-          name="hero"
-        />
-        <Input
-          text="A plural geographic landform"
-          eg="mountains, caves, deciduous forests"
-          handleChange={@handleChange}
-          name="landform"
-        />
-        <Input
-          text="Your least favorite U.S. city"
-          handleChange={@handleChange}
-          name="city"
-        />
-        <Input
-          text="Your childhood nemesis"
-          handleChange={@handleChange}
-          name="nemesis"
-        />
-        {
-          @state.filled and
-          <button>Done</button>
-        }
+      {
+        switch @state.step
+          when 0
+            <Input
+              text="Your personal hero"
+              focus={true}
+              handleChange={@handleChange}
+              name="hero"
+              value={@state.hero}
+            />
+          when 1
+            <Input
+              text="A plural geographic landform"
+              eg="mountains, caves, deciduous forests"
+              handleChange={@handleChange}
+              name="landform"
+              value={@state.landform}
+            />
+          when 2
+            <Input
+              text="Your least favorite U.S. city"
+              handleChange={@handleChange}
+              name="city"
+              value={@state.city}
+            />
+          when 3
+            <Input
+              text="Your childhood nemesis"
+              handleChange={@handleChange}
+              name="nemesis"
+              value={@state.nemesis}
+            />
+      }
       </form>
     </div>

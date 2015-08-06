@@ -46,10 +46,11 @@ module.exports = React.createClass
     <h2>{title[0]} <br /><span className="of">of</span> {title[1]}</h2>
 
   generateStory: ->
-    Data.push(PERSONAL_HERO: [@props.PERSONAL_HERO])
-    Data.push(NEMESIS: [@props.NEMESIS])
-    Data.push(LEAST_FAVORITE_US_CITY: [@props.LEAST_FAVORITE_US_CITY])
-    story = Data.reduce (story, val) =>
+    data = _.clone Data
+    data.push(PERSONAL_HERO: [@props.PERSONAL_HERO])
+    data.push(NEMESIS: [@props.NEMESIS])
+    data.push(LEAST_FAVORITE_US_CITY: [@props.LEAST_FAVORITE_US_CITY])
+    story = data.reduce (story, val) =>
       key = Object.keys(val)[0]
       re = new RegExp(key, 'g')
       story = story.replace(re, _.sample(val[key]))
