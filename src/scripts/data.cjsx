@@ -191,7 +191,7 @@ module.exports = [
       " is accused of plagiarism"
       " falls off the roof of their high school"
       " is hit by a train"
-      "’s acceptance is revoked after an illegitimate plagiarism scandal."
+      "’s acceptance is revoked after an illegitimate plagiarism scandal"
       " is arrested for a crime she didn’t commit"
       " disappears"
       " is attacked after a party"

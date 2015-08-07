@@ -1,10 +1,10 @@
 .book {
   max-width: 540px;
-  min-height: 750px;
+  min-height: 680px;
   margin: 0 auto;
   position: relative;
   .best {
-    padding-top: 30px;
+    padding-top: 20px;
     display: block;
     svg {
       width: 280px;
@@ -61,8 +61,8 @@
     }
   }
   h2 {
-    margin-top: 30px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 9px;
     color: white;
     font-family: ProximaNovaCond;
     text-transform: uppercase;
@@ -86,7 +86,7 @@
     font-size: 20px;
     line-height: 30px;
     color: #222;
-    padding: 0 30px 75px;
+    padding: 0 30px 60px;
     z-index: 100;
     margin: 0;
   }
@@ -104,11 +104,18 @@
       .movie svg {
         width: 180px;
         margin: 0;
-        margin-left: 50%;
+        margin-left: 40%;
       }
       .price svg {
         width: 60px;
       }
+    }
+    p {
+      font-size: 17px;
+      line-height: 24px;
+    }
+    .dropcap {
+      width: 90px;
     }
   }
 }

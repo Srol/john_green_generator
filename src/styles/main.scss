@@ -29,6 +29,7 @@ body {
 }
 
 h3.header {
+  margin-top: 15px;
   margin-bottom: 15px;
   line-height: 42px;
   font-family: Georgia;
@@ -57,7 +58,7 @@ input[type=text] {
   padding-bottom: 6px;
   outline: none;
   @include placeholder {
-    color: black;
+    color: #999;
   }
 }
 
@@ -106,7 +107,7 @@ input[type=text] {
   display: flex;
   justify-content: flex-end;
   background: white;
-  padding-top: 20px;
+  padding-top: 10px;
   max-width: 540px;
   margin: 0 auto;
   a {
@@ -175,7 +176,7 @@ h4, p {
 .option {
   font-family: ProximaNovaCond;
   font-size: 16px;
-  color: #808080;
+  color: #666;
   cursor: pointer;
   // flex: 1 0;
   // width: 150px;
@@ -223,7 +224,7 @@ h4, p {
       margin-left: 0;
     }
     .button svg {
-      width: 40px;
+      width: 36px;
     }
   }
   .punishment_header {
