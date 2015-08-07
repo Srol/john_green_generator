@@ -16,6 +16,9 @@ $red: #E21638;
 $dark_blue: #1E6558;
 
 // Project imports
+html {
+  overflow: hidden;
+}
 
 body {
   @include font-smoothing;
