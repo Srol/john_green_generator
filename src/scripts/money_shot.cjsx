@@ -72,7 +72,7 @@ module.exports = React.createClass
         tw_text={"#{@generateTitleText().trim()}, a new novel by John Green and also me"}
         text={"<i>#{@generateTitleText().trim()}</i>, a new novel by John Green"}
         fb_description={"Eat your heart out, #{@props.NEMESIS}."}
-        fb_image="http://gawker-labs.com/goodell_punishment/goodell_facebook-02.png"
+        fb_image="http://johngreen.surge.sh/jg_stamp.png"
         post_url="http://jezebel.com/create-your-very-own-ya-novel-with-this-john-green-book-1722525727"
         app_id="281755378661433"
       />
